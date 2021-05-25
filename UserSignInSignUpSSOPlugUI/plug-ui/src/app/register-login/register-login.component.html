@@ -1,0 +1,101 @@
+<div class="register-box">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="toggle">
+                <div class="col-xs-12">
+                    <mat-slide-toggle [(ngModel)]="isLogin"> 
+                        <p *ngIf="!isLogin">Register!</p>
+                        <p *ngIf="isLogin">Login!</p>
+                    </mat-slide-toggle>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="example-form">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email (Username)</mat-label>
+                            <input matInput type="text" [(ngModel)]="value"
+                                [ngModelOptions]="{standalone: true}"
+                                class="form-control"
+                                id="email" name="email" ngModel required
+                            >
+                            <button mat-button *ngIf="value" 
+                                matSuffix mat-icon-button aria-label="Clear" (click)="value=''"
+                            >
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
+            
+                        <table class="example-full-width" cellspacing="0">
+                            <tr *ngIf="!isLogin">
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>First name</mat-label>
+                                        <input matInput class="form-control"
+                                            id="firstName" name="firstName" ngModel required
+                                        >
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Last Name</mat-label>
+                                        <input matInput class="form-control"
+                                            id="lastName" name="lastName" ngModel
+                                        >
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Enter Password</mat-label>
+                                        <input matInput type="password" placeholder="8-10 characters"
+                                            class="form-control" id="password" name="password" ngModel required
+                                        >
+                                    </mat-form-field>
+                                </td>
+                                <td *ngIf="!isLogin">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Re-enter Password</mat-label>
+                                        <input matInput type="password" placeholder="8-10 characters"
+                                            class="form-control" id="repassword" name="repassword" ngModel required
+                                        >
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr *ngIf="!isLogin">
+                                <td>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>User Role</mat-label>
+                                        <mat-select [(ngModel)]="selectedValue" name="userRole">
+                                            <mat-option 
+                                                *ngFor="let userRole of userRoles" 
+                                                [value]="userRole.value"
+                                            >
+                                                {{ userRole.viewValue }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+                        <button type="submit" 
+                            btn btn-primary class="btn btn-lg btn-primary btn-block" 
+                            [disabled]="!loginForm.valid" *ngIf="!isLogin"
+                        >
+                            Register
+                        </button>
+                        <button type="submit" 
+                            btn btn-primary class="btn btn-lg btn-primary btn-block" 
+                            [disabled]="!loginForm.valid" *ngIf="isLogin"
+                        >
+                            Login
+                        </button>
+                    </form>
+                </div>
+            </div>          
+        </div>
+    </div>
+    <app-sso-login></app-sso-login>
+</div>

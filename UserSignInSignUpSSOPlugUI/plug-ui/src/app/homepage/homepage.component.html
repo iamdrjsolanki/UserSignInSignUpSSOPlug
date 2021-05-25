@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>You have logged in successfully</p>
+            <p>Fetched messages from the server api calls.......</p>
+            <button type="submit" 
+                btn btn-primary class="btn btn-lg btn-primary btn-block" 
+                (click)="helloWorld()"
+            >
+                HelloWorld API
+            </button>
+            <button type="submit" 
+                btn btn-primary class="btn btn-lg btn-primary btn-block"
+                (click)="restricted()"
+            >
+                Restricted API
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>{{ helloWorldMsg }}</p>
+                <p>{{ restrictedMsg }}</p>
+            </div>
+        </div>
+    </div>
+</div>

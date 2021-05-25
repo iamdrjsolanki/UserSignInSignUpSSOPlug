@@ -1,0 +1,29 @@
+.register-box {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, 20%);
+    background-color: #ffffff;
+    padding: 40px 30px 30px;
+    box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.39);
+    border-radius: 4px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+  
+td {
+    padding-right: 8px;
+}
+
+.toggle {
+    position: absolute;
+    right: 0px;
+}
